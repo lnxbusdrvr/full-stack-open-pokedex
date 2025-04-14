@@ -3,7 +3,8 @@ module.exports = {
     'browser': true,
     'es6': true,
     'jest/globals': true,
-    'node': true // will fix error  'module' is not defined  no-undef
+    'node': true, // will fix error  'module' is not defined  no-undef
+    'cypress/globals': true,
   },
   'extends': [
     'eslint:recommended',
@@ -17,7 +18,7 @@ module.exports = {
     'sourceType': 'module'
   },
   'plugins': [
-    'react', 'jest'
+    'react', 'jest', 'cypress'
   ],
   'rules': {
     'indent': [
