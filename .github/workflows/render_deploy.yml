@@ -35,7 +35,7 @@ jobs:
         with:
           start: npm run start-prod
           wait-on: http://localhost:5000/
-          wait-on-timeout: 60  # sekuntia
+          wait-on-timeout: 60
           command: npm run test:e2e
 
       - name: Trigger deployment to Render
@@ -43,4 +43,4 @@ jobs:
         with:
           serviceId: ${{ secrets.RENDER_SERVICE_ID }}
           apiKey: ${{ secrets.RENDER_API_KEY }}
-          multipleDeployment: false #optional, default true
+          multipleDeployment: false
