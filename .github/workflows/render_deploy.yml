@@ -44,3 +44,11 @@ jobs:
           serviceId: ${{ secrets.RENDER_SERVICE_ID }}
           apiKey: ${{ secrets.RENDER_API_KEY }}
           multipleDeployment: false
+
+      - name: Debug Render API (Verbose)
+        run: |
+          curl -v -X POST \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+          -d '{}' \
+          "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploy"
