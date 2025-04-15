@@ -34,3 +34,5 @@ jobs:
       - name: Debug2
         run: |
           echo "${{ secrets.RENDER_SERVICE_ID }}"
+      - name: Deploy to render
+        run: https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
