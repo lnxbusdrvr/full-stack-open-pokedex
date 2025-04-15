@@ -6,7 +6,7 @@ echo "build"
 npm install
 npm run eslint
 npm run test
-npm run start &
+npm run start-prod &
 SERVER_PID=$! 
 npm run test:e2e
 kill $SERVER_PID
