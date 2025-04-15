@@ -10,7 +10,7 @@ echo "run tests"
 npm run test
 
 echo "run e2e-tests"
-npm start-prod
+npm run start
 npm run test:e2e
 
 echo "build"
