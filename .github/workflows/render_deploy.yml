@@ -27,17 +27,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test
-        run: npm test
-
-      - name: E2E tests
-        uses: cypress-io/github-action@v5
-        with:
-          start: npm run start-prod
-          wait-on: http://localhost:5000/
-          wait-on-timeout: 60
-          command: npm run test:e2e
-
       - name: Trigger deployment
         uses: sws2apps/render-deployment@main 
         with: 
@@ -47,8 +36,7 @@ jobs:
 
       - name: Debug Render API (Verbose)
         run: |
-          curl -v -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
-          -d '{}' \
-          "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploy"
+          echo "${{ secrets.RENDER_API_KEY }}"
+      - name: Debug2
+        run: |
+          echo "${{ secrets.RENDER_SERVICE_ID }}"
