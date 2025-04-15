@@ -13,5 +13,5 @@ app.listen(PORT, () => {
 })
 
 app.get('/version', (req, res) => {
-  res.send(`v${version} - built app at ${new Date().toISOString()}`)
+  res.send(`v${version} - built site at ${new Date().toISOString()}`)
 })
