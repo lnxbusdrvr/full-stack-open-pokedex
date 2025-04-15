@@ -39,7 +39,8 @@ jobs:
           command: npm run test:e2e
 
       - name: Trigger deployment
-        uses: JorgeLNJunior/render-deploy@v1.4.5
+        uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          service_id: ${{ secrets.RENDER_SERVICE_ID }}
-          api_key: ${{ secrets.RENDER_API_KEY }}
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          wait-for-success: true
