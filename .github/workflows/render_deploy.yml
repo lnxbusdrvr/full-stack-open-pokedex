@@ -39,7 +39,7 @@ jobs:
           command: npm run test:e2e
 
       - name: Trigger deployment to Render
-        uses: sws2apps/render-deployment@deploy
+        uses: sws2apps/render-deployment@main
         with:
           serviceId: ${{ secrets.RENDER_SERVICE_ID }}
           apiKey: ${{ secrets.RENDER_API_KEY }}
