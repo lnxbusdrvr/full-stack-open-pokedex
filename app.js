@@ -15,3 +15,7 @@ app.listen(PORT, () => {
 app.get('/version', (req, res) => {
   res.send(`v${version} - built site at ${new Date().toISOString()}`)
 })
+
+app.get('/health', (req, res) => {
+  res.send('ok')
+})
