@@ -8,12 +8,9 @@ on:
     branches: [main]
     types: [opened, synchronize]
 
-env:
-  SHOULD_DEPLOY: ${{ !contains(join(github.event.commits.*.message, ' '), '#skip') }} # don't version if skip
-
 jobs:
   deploy:
-    if: github.event_name == 'push' && env.SHOULD_DEPLOY == 'true'
+    if: github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '), '#skip')
     runs-on: ubuntu-22.04
     permissions:
       deployments: write
@@ -52,7 +49,7 @@ jobs:
   tag_release:
     needs: deploy
     runs-on: ubuntu-22.04
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && env.SHOULD_DEPLOY == 'true'
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '), '#skip')
     permissions:
       contents: write
     steps:
