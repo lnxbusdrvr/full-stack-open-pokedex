@@ -46,6 +46,30 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: curl "https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}"
 
+      
+      - name: Notify Discord on Success
+        if: success()
+        uses: Ilshidur/discord-webhook-action@master
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          message: |
+            ✅ New version deployed to Render!
+            Repo: ${{ github.repository }}
+            Commit: ${{ github.sha }}
+            User: ${{ github.actor }}
+
+      - name: Notify Discord on Failure
+        if: failure()
+        uses: Ilshidur/discord-webhook-action@master
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          message: |
+            ❌ Build failed
+            Commit: ${{ github.sha }}
+            User: ${{ github.actor }}
+            Message: ${{ github.event.head_commit.message }}
+            Commit link: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
+
   tag_release:
     needs: deploy
     runs-on: ubuntu-22.04
