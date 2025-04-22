@@ -1,8 +1,6 @@
 name: Health check
 on:
-  schedule:
-    # every hour
-    - cron: '0 * * * *'
+  workflow_dispatch:
 jobs:
   health:
     runs-on: ubuntu-22.04
