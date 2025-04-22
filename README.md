@@ -16,3 +16,5 @@ Start by running `npm install` inside the project folder
 
 ## Links
 1. [lnxbusdrvr fork running on render](https://lnxbusdrvr-full-stack-open-pokedex.onrender.com/)
+1. [Phonebook app source](https://github.com/lnxbusdrvr/ci-cd-fso11/)
+1. [Phonebook app running on render](https://lnxbudrvr-ci-cd-fso11.onrender.com/)
